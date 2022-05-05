@@ -4,17 +4,17 @@
 # == CHANGE THE SETTINGS BELOW TO SUIT YOUR ENVIRONMENT =======================
 
 # Your platform. See PLATS for possible values.
-PLAT= guess
+PLAT?= guess
 
-CC= gcc -std=gnu99
-CFLAGS= -O2 -Wall -Wextra -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS)
-LDFLAGS= $(SYSLDFLAGS) $(MYLDFLAGS)
-LIBS= -lm $(SYSLIBS) $(MYLIBS)
+CC?= gcc -std=gnu99
+CFLAGS?= -O2 -Wall -Wextra -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS)
+LDFLAGS?= $(SYSLDFLAGS) $(MYLDFLAGS)
+LIBS?= -lm $(SYSLIBS) $(MYLIBS)
 
-AR= ar rcu
-RANLIB= ranlib
-RM= rm -f
-UNAME= uname
+AR?= ar rcu
+RANLIB?= ranlib
+RM?= rm -f
+UNAME?= uname
 
 SYSCFLAGS=
 SYSLDFLAGS=

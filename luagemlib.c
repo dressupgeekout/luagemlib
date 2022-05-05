@@ -3,6 +3,8 @@
  * Charlotte Koch <dressupgeekout@gmail.com>
  */
 
+#include <stdlib.h>
+
 #include <lua.h>
 #include <lauxlib.h>
 
@@ -79,7 +81,7 @@ static luaL_Reg rsrc_functions[] = {
 	{"rcfix", l_rsrc_rcfix},
 	{"rsrc_saddr", l_rsrc_saddr},
 	{NULL, NULL}
-}
+};
 
 static luaL_Reg wind_functions[] = {
 	{"calc", l_wind_calc},
@@ -104,13 +106,13 @@ static luaL_Reg wind_functions[] = {
 /* ********** */
 
 static int
-l_appl_bvset(lua_State *L);
+l_appl_bvset(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_appl_control(lua_State *L);
+l_appl_control(lua_State *L)
 {
 	return 0;
 }
@@ -120,7 +122,7 @@ l_appl_control(lua_State *L);
  * errno = appl.exit()
  */
 static int
-l_appl_exit(lua_State *L);
+l_appl_exit(lua_State *L)
 {
 	short rv = appl_exit();
 	lua_pushinteger(L, (int)rv);
@@ -128,73 +130,73 @@ l_appl_exit(lua_State *L);
 }
 
 static int
-l_appl_find(lua_State *L);
+l_appl_find(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_appl_getinfo(lua_State *L);
+l_appl_getinfo(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_appl_xgetinfo(lua_State *L);
+l_appl_xgetinfo(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_appl_getinfo_str(lua_State *L);
+l_appl_getinfo_str(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_appl_read(lua_State *L);
+l_appl_read(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_appl_search(lua_State *L);
+l_appl_search(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_appl_tplay(lua_State *L);
+l_appl_tplay(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_appl_trecord(lua_State *L);
+l_appl_trecord(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_appl_write(lua_State *L);
+l_appl_write(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_appl_yield(lua_State *L);
+l_appl_yield(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_appl_getcicon(lua_State *L);
+l_appl_getcicon(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_appl_get_cicon(lua_State *L);
+l_appl_get_cicon(lua_State *L)
 {
 	return 0;
 }
@@ -204,7 +206,7 @@ l_appl_get_cicon(lua_State *L);
  * app_id = appl.init()
  */
 static int
-l_appl_init(lua_State *L);
+l_appl_init(lua_State *L)
 {
 	short app_id = appl_init();
 	lua_pushinteger(L, (int)app_id);
@@ -226,25 +228,25 @@ l_rsrc_gaddr(lua_State *L)
 }
 
 static int
-l_rsrc_load(lua_State *L);
+l_rsrc_load(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_rsrc_obfix(lua_State *L);
+l_rsrc_obfix(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_rsrc_rcfix(lua_State *L);
+l_rsrc_rcfix(lua_State *L)
 {
 	return 0;
 }
 
 static int
-l_rsrc_saddr(lua_State *L);
+l_rsrc_saddr(lua_State *L)
 {
 	return 0;
 }
@@ -355,6 +357,16 @@ luaopen_luagemlib(lua_State *L)
 {
 	/* XXX register everything */
 	return 1;
+}
+
+/* ********** */
+
+int
+main(int argc, char *argv[])
+{
+	lua_State *L = luaopen();
+	lua_close(L);
+	return EXIT_SUCCESS;
 }
 
 /* ********** */
